@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miami Plaza Tower — Luxury Apartment Rentals in Miami's Arts & Entertainment District</title>
+<meta name="description" content="Miami Plaza Tower offers luxury apartment rentals with breathtaking Biscayne Bay views. 36 stories, 425 units, world-class amenities in Miami's Arts & Entertainment District.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        gold: '#C9A84C',
+        'gold-light': '#D4B96A',
+        'gold-dark': '#B89530',
+        midnight: '#0A0E17',
+        'midnight-light': '#141B2D',
+        cream: '#FAF8F4',
+        charcoal: '#1A1A1A'
+      },
+      fontFamily: {
+        display: ['Cormorant Garamond', 'Georgia', 'serif'],
+        body: ['DM Sans', 'sans-serif']
+      }
+    }
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="icon" href="../wp-content/uploads/2018/04/cropped-logo-miamiplaza-150-1-32x32.png">
+<style>
+body { font-family: 'DM Sans', sans-serif; }
+.font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+/* Sticky header */
+header { transition: all 0.5s ease; }
+header.scrolled { background: rgba(10,14,23,0.95); backdrop-filter: blur(16px); }
+
+/* Hero parallax */
+.hero-section { position: relative; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; transition: transform 0.1s linear; }
+.hero-overlay { background: linear-gradient(180deg, rgba(10,14,23,0.3) 0%, rgba(10,14,23,0.7) 70%, rgba(10,14,23,1) 100%); }
+
+/* Scroll animations */
+.reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+/* Gold line accent */
+.gold-line { width: 60px; height: 2px; background: linear-gradient(90deg, #C9A84C, #D4B96A); }
+
+/* Image hover zoom */
+.img-zoom { overflow: hidden; }
+.img-zoom img { transition: transform 0.6s ease; }
+.img-zoom:hover img { transform: scale(1.05); }
+
+/* Amenity cards */
+.amenity-card { transition: transform 0.3s, box-shadow 0.3s; }
+.amenity-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(201,168,76,0.15); }
+
+/* Nav links */
+.nav-link { position: relative; letter-spacing: 0.1em; }
+.nav-link::after { content:''; position:absolute; bottom:-4px; left:50%; width:0; height:1px; background:#C9A84C; transition:all 0.3s; transform:translateX(-50%); }
+.nav-link:hover::after { width:100%; }
+
+/* Smooth counter */
+@keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+
+/* Gallery lightbox */
+.gallery-item { cursor: pointer; }
+
+/* Mobile menu */
+#mobileMenu { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+#mobileMenu.open { max-height: 400px; }
+</style>
+</head>
+<body class="bg-midnight text-white">
+
+<!-- Header -->
+<header id="header" class="fixed top-0 w-full z-50">
+<div class="max-w-[1200px] mx-auto px-6 py-5 flex items-center justify-between">
+  <a href="#" class="flex items-center gap-3">
+    <img src="../wp-content/uploads/2018/04/cropped-logo-miamiplaza-150.png" alt="Miami Plaza" class="h-10">
+  </a>
+  <nav class="hidden md:flex items-center gap-8">
+    <a href="#home" class="nav-link text-white/60 hover:text-gold text-xs uppercase font-medium tracking-widest transition">Home</a>
+    <a href="#residences" class="nav-link text-white/60 hover:text-gold text-xs uppercase font-medium tracking-widest transition">Residences</a>
+    <a href="#amenities" class="nav-link text-white/60 hover:text-gold text-xs uppercase font-medium tracking-widest transition">Amenities</a>
+    <a href="#views" class="nav-link text-white/60 hover:text-gold text-xs uppercase font-medium tracking-widest transition">Views</a>
+    <a href="#floorplans" class="nav-link text-white/60 hover:text-gold text-xs uppercase font-medium tracking-widest transition">Floor Plans</a>
+    <a href="#location" class="nav-link text-white/60 hover:text-gold text-xs uppercase font-medium tracking-widest transition">Location</a>
+    <a href="#contact" class="px-6 py-2.5 border border-gold/40 text-gold text-xs uppercase tracking-widest font-medium hover:bg-gold hover:text-midnight transition">Schedule a Tour</a>
+  </nav>
+  <button id="menuBtn" class="md:hidden text-white/60 text-xl"><i class="fa-solid fa-bars"></i></button>
+</div>
+<div id="mobileMenu" class="md:hidden bg-midnight-light mx-4 rounded-b-xl">
+  <div class="p-6 space-y-4 text-center">
+    <a href="#home" class="block text-white/60 hover:text-gold text-sm uppercase tracking-wider py-1">Home</a>
+    <a href="#residences" class="block text-white/60 hover:text-gold text-sm uppercase tracking-wider py-1">Residences</a>
+    <a href="#amenities" class="block text-white/60 hover:text-gold text-sm uppercase tracking-wider py-1">Amenities</a>
+    <a href="#views" class="block text-white/60 hover:text-gold text-sm uppercase tracking-wider py-1">Views</a>
+    <a href="#floorplans" class="block text-white/60 hover:text-gold text-sm uppercase tracking-wider py-1">Floor Plans</a>
+    <a href="#location" class="block text-white/60 hover:text-gold text-sm uppercase tracking-wider py-1">Location</a>
+    <a href="#contact" class="block text-gold font-semibold text-sm uppercase tracking-wider py-1">Schedule a Tour</a>
+  </div>
+</div>
+</header>
+
+<!-- Hero -->
+<section id="home" class="hero-section min-h-screen flex items-end pb-24 relative">
+  <div class="hero-bg">
+    <img src="../ai-images/hero-sunset.jpg" alt="Miami Plaza Tower at Sunset" class="w-full h-full object-cover" id="heroBg">
+  </div>
+  <div class="hero-overlay absolute inset-0"></div>
+  <div class="relative z-10 max-w-[1200px] mx-auto px-6 w-full">
+    <div class="reveal">
+      <div class="gold-line mb-6"></div>
+      <p class="text-gold text-xs uppercase tracking-[0.3em] font-medium mb-4">Miami's Arts & Entertainment District</p>
+      <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-light text-white mb-6 leading-[1.1]">
+        Miami Plaza<br><span class="font-semibold italic">Tower</span>
+      </h1>
+      <p class="text-white/50 text-lg max-w-lg mb-10 leading-relaxed">36 stories of luxury living with breathtaking Biscayne Bay views. Where Miami's skyline meets your living room.</p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="#contact" class="px-8 py-4 bg-gold text-midnight font-semibold text-sm uppercase tracking-wider hover:bg-gold-light transition text-center">Schedule a Tour</a>
+        <a href="../wp-content/uploads/2020/01/miami-plaza-brochure.pdf" target="_blank" class="px-8 py-4 border border-white/20 text-white text-sm uppercase tracking-wider hover:border-gold hover:text-gold transition text-center">Download Brochure</a>
+      </div>
+    </div>
+    <!-- Stats bar -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-8 border-t border-white/10">
+      <div class="reveal" style="transition-delay:0.1s">
+        <p class="font-display text-3xl md:text-4xl font-light text-gold">36</p>
+        <p class="text-white/30 text-xs uppercase tracking-wider mt-1">Stories</p>
+      </div>
+      <div class="reveal" style="transition-delay:0.2s">
+        <p class="font-display text-3xl md:text-4xl font-light text-gold">425</p>
+        <p class="text-white/30 text-xs uppercase tracking-wider mt-1">Residences</p>
+      </div>
+      <div class="reveal" style="transition-delay:0.3s">
+        <p class="font-display text-3xl md:text-4xl font-light text-gold">8,000</p>
+        <p class="text-white/30 text-xs uppercase tracking-wider mt-1">SF Retail</p>
+      </div>
+      <div class="reveal" style="transition-delay:0.4s">
+        <p class="font-display text-3xl md:text-4xl font-light text-gold">24/7</p>
+        <p class="text-white/30 text-xs uppercase tracking-wider mt-1">Concierge</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Welcome / About -->
+<section id="residences" class="py-32 px-6 bg-midnight">
+<div class="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-16 items-center">
+  <div class="reveal-left">
+    <div class="gold-line mb-6"></div>
+    <p class="text-gold text-xs uppercase tracking-[0.3em] font-medium mb-4">Welcome to Luxury</p>
+    <h2 class="font-display text-3xl md:text-4xl font-light text-white mb-6 leading-tight">Where Every Detail <span class="italic font-semibold">Inspires</span></h2>
+    <p class="text-white/40 leading-relaxed mb-6">While breathtaking views and an enviable location are plenty of reason to fall in love with Miami Plaza, it is the myriad of fine touches that come together to make this residential destination like no other.</p>
+    <p class="text-white/40 leading-relaxed mb-8">You will catch the warm sunrise of every morning and the amazing sunsets of each afternoon. Then, the flickering lights from the city will invite you to eat, drink and experience multi-cultural flavors of our Urban Dining at your doorstep.</p>
+    <div class="grid grid-cols-2 gap-6">
+      <div class="border-l-2 border-gold/30 pl-4">
+        <p class="text-white text-sm font-medium">Floor-to-Ceiling Windows</p>
+        <p class="text-white/30 text-xs mt-1">Panoramic bay & city views</p>
+      </div>
+      <div class="border-l-2 border-gold/30 pl-4">
+        <p class="text-white text-sm font-medium">European Cabinetry</p>
+        <p class="text-white/30 text-xs mt-1">Fine imported finishes</p>
+      </div>
+      <div class="border-l-2 border-gold/30 pl-4">
+        <p class="text-white text-sm font-medium">Glass Railing Balconies</p>
+        <p class="text-white/30 text-xs mt-1">Expansive outdoor living</p>
+      </div>
+      <div class="border-l-2 border-gold/30 pl-4">
+        <p class="text-white text-sm font-medium">Energy-Efficient Glass</p>
+        <p class="text-white/30 text-xs mt-1">Tinted for comfort & savings</p>
+      </div>
+    </div>
+  </div>
+  <div class="reveal-right img-zoom rounded-xl overflow-hidden">
+    <img src="../ai-images/kitchen.jpg" alt="Luxury Kitchen" class="w-full">
+  </div>
+</div>
+</section>
+
+<!-- Amenities -->
+<section id="amenities" class="py-32 px-6 bg-midnight-light">
+<div class="max-w-[1200px] mx-auto">
+  <div class="text-center mb-20 reveal">
+    <div class="gold-line mx-auto mb-6"></div>
+    <p class="text-gold text-xs uppercase tracking-[0.3em] font-medium mb-4">World-Class Living</p>
+    <h2 class="font-display text-3xl md:text-4xl font-light text-white">Amenities & <span class="italic font-semibold">Lifestyle</span></h2>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+    <div class="img-zoom rounded-xl overflow-hidden reveal-left">
+      <img src="../ai-images/pool.jpg" alt="Rooftop Pool" class="w-full">
+    </div>
+    <div class="reveal-right">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div class="amenity-card bg-midnight rounded-xl p-6 border border-white/5">
+          <i class="fa-solid fa-water text-gold text-xl mb-3"></i>
+          <p class="text-white font-medium text-sm">Stylish Pool</p>
+          <p class="text-white/30 text-xs mt-1">Resort-style swimming with bay views</p>
+        </div>
+        <div class="amenity-card bg-midnight rounded-xl p-6 border border-white/5">
+          <i class="fa-solid fa-dumbbell text-gold text-xl mb-3"></i>
+          <p class="text-white font-medium text-sm">Fitness Center</p>
+          <p class="text-white/30 text-xs mt-1">State-of-the-art cardiovascular</p>
+        </div>
+        <div class="amenity-card bg-midnight rounded-xl p-6 border border-white/5">
+          <i class="fa-solid fa-concierge-bell text-gold text-xl mb-3"></i>
+          <p class="text-white font-medium text-sm">24hr Concierge</p>
+          <p class="text-white/30 text-xs mt-1">Full-service security & valet</p>
+        </div>
+        <div class="amenity-card bg-midnight rounded-xl p-6 border border-white/5">
+          <i class="fa-solid fa-briefcase text-gold text-xl mb-3"></i>
+          <p class="text-white font-medium text-sm">Business Center</p>
+          <p class="text-white/30 text-xs mt-1">Modern co-working space</p>
+        </div>
+        <div class="amenity-card bg-midnight rounded-xl p-6 border border-white/5">
+          <i class="fa-solid fa-square-parking text-gold text-xl mb-3"></i>
+          <p class="text-white font-medium text-sm">Valet Parking</p>
+          <p class="text-white/30 text-xs mt-1">Multi-level secured garage</p>
+        </div>
+        <div class="amenity-card bg-midnight rounded-xl p-6 border border-white/5">
+          <i class="fa-solid fa-store text-gold text-xl mb-3"></i>
+          <p class="text-white font-medium text-sm">Retail at Your Door</p>
+          <p class="text-white/30 text-xs mt-1">8,000 SF of commercial space</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- Views -->
+<section id="views" class="py-32 px-6 bg-midnight">
+<div class="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-16 items-center">
+  <div class="reveal-left">
+    <div class="gold-line mb-6"></div>
+    <p class="text-gold text-xs uppercase tracking-[0.3em] font-medium mb-4">Breathtaking</p>
+    <h2 class="font-display text-3xl md:text-4xl font-light text-white mb-6 leading-tight">Bay Views from <span class="italic font-semibold">Every Angle</span></h2>
+    <p class="text-white/40 leading-relaxed mb-8">Wake up to sunrises over Biscayne Bay and unwind to the glittering Miami skyline each evening. Miami Plaza Tower offers unobstructed panoramic views from every residence — a living canvas that changes with the light of each day.</p>
+    <a href="#contact" class="inline-flex items-center gap-2 text-gold text-sm uppercase tracking-wider font-medium hover:text-gold-light transition">
+      See Available Views <i class="fa-solid fa-arrow-right text-xs"></i>
+    </a>
+  </div>
+  <div class="reveal-right img-zoom rounded-xl overflow-hidden">
+    <img src="../ai-images/balcony-view.jpg" alt="Bay View from Balcony" class="w-full">
+  </div>
+</div>
+</section>
+
+<!-- Floor Plans -->
+<section id="floorplans" class="py-32 px-6 bg-midnight-light">
+<div class="max-w-[1200px] mx-auto">
+  <div class="text-center mb-16 reveal">
+    <div class="gold-line mx-auto mb-6"></div>
+    <p class="text-gold text-xs uppercase tracking-[0.3em] font-medium mb-4">Explore Your Future Home</p>
+    <h2 class="font-display text-3xl md:text-4xl font-light text-white">Floor <span class="italic font-semibold">Plans</span></h2>
+    <p class="text-white/30 text-sm mt-4 max-w-lg mx-auto">Choose from a variety of thoughtfully designed layouts. Swipe or scroll to explore.</p>
+  </div>
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <div class="bg-midnight rounded-xl p-4 border border-white/5 hover:border-gold/30 transition reveal">
+      <img src="../wp-content/uploads/2020/01/Floorplan_Unit2_Podium.jpg" alt="Unit 2 Podium" class="w-full rounded-lg mb-3">
+      <p class="text-white text-sm font-medium">Unit 2 — Podium</p>
+    </div>
+    <div class="bg-midnight rounded-xl p-4 border border-white/5 hover:border-gold/30 transition reveal" style="transition-delay:0.05s">
+      <img src="../wp-content/uploads/2020/01/Floorplan_Unit5.jpg" alt="Unit 5" class="w-full rounded-lg mb-3">
+      <p class="text-white text-sm font-medium">Unit 5</p>
+    </div>
+    <div class="bg-midnight rounded-xl p-4 border border-white/5 hover:border-gold/30 transition reveal" style="transition-delay:0.1s">
+      <img src="../wp-content/uploads/2020/01/Floorplan_Unit6.jpg" alt="Unit 6" class="w-full rounded-lg mb-3">
+      <p class="text-white text-sm font-medium">Unit 6</p>
+    </div>
+    <div class="bg-midnight rounded-xl p-4 border border-white/5 hover:border-gold/30 transition reveal" style="transition-delay:0.15s">
+      <img src="../wp-content/uploads/2020/01/Floorplan_Unit7.jpg" alt="Unit 7" class="w-full rounded-lg mb-3">
+      <p class="text-white text-sm font-medium">Unit 7</p>
+    </div>
+    <div class="bg-midnight rounded-xl p-4 border border-white/5 hover:border-gold/30 transition reveal">
+      <img src="../wp-content/uploads/2020/01/Floorplan_Unit8.jpg" alt="Unit 8" class="w-full rounded-lg mb-3">
+      <p class="text-white text-sm font-medium">Unit 8</p>
+    </div>
+    <div class="bg-midnight rounded-xl p-4 border border-white/5 hover:border-gold/30 transition reveal" style="transition-delay:0.05s">
+      <img src="../wp-content/uploads/2020/01/Floorplan_9-36.jpg" alt="Units 9-36" class="w-full rounded-lg mb-3">
+      <p class="text-white text-sm font-medium">Units 9–36</p>
+    </div>
+    <div class="bg-midnight rounded-xl p-4 border border-white/5 hover:border-gold/30 transition reveal" style="transition-delay:0.1s">
+      <img src="../wp-content/uploads/2020/01/Floorplan_Unit10_Tower.jpg" alt="Unit 10 Tower" class="w-full rounded-lg mb-3">
+      <p class="text-white text-sm font-medium">Unit 10 — Tower</p>
+    </div>
+    <div class="bg-midnight rounded-xl p-4 border border-white/5 hover:border-gold/30 transition reveal" style="transition-delay:0.15s">
+      <img src="../wp-content/uploads/2020/01/Floorplan_Unit12_Tower.jpg" alt="Unit 12 Tower" class="w-full rounded-lg mb-3">
+      <p class="text-white text-sm font-medium">Unit 12 — Tower</p>
+    </div>
+  </div>
+  <div class="text-center mt-10 reveal">
+    <a href="../wp-content/uploads/2020/01/miami-plaza-brochure.pdf" target="_blank" class="inline-flex items-center gap-2 px-8 py-4 border border-gold/40 text-gold text-sm uppercase tracking-wider font-medium hover:bg-gold hover:text-midnight transition">
+      <i class="fa-solid fa-file-pdf"></i> Download Full Brochure
+    </a>
+  </div>
+</div>
+</section>
+
+<!-- Lobby -->
+<section class="py-32 px-6 bg-midnight">
+<div class="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-16 items-center">
+  <div class="img-zoom rounded-xl overflow-hidden reveal-left">
+    <img src="../ai-images/lobby.jpg" alt="Grand Lobby" class="w-full">
+  </div>
+  <div class="reveal-right">
+    <div class="gold-line mb-6"></div>
+    <p class="text-gold text-xs uppercase tracking-[0.3em] font-medium mb-4">Grand Arrival</p>
+    <h2 class="font-display text-3xl md:text-4xl font-light text-white mb-6 leading-tight">A Lobby That Sets <span class="italic font-semibold">the Tone</span></h2>
+    <p class="text-white/40 leading-relaxed mb-6">From the moment you step inside, Miami Plaza Tower announces itself. Double-height ceilings, curated art, and a 24-hour attended lobby ensure that coming home feels extraordinary — every single time.</p>
+    <ul class="space-y-3">
+      <li class="flex items-center gap-3 text-white/50 text-sm"><i class="fa-solid fa-check text-gold text-xs"></i> 24-hour attended concierge</li>
+      <li class="flex items-center gap-3 text-white/50 text-sm"><i class="fa-solid fa-check text-gold text-xs"></i> Curated art & design installations</li>
+      <li class="flex items-center gap-3 text-white/50 text-sm"><i class="fa-solid fa-check text-gold text-xs"></i> Secure package & mail room</li>
+      <li class="flex items-center gap-3 text-white/50 text-sm"><i class="fa-solid fa-check text-gold text-xs"></i> Multi-level secured parking with valet</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<!-- Location -->
+<section id="location" class="py-32 px-6 bg-midnight-light">
+<div class="max-w-[1200px] mx-auto">
+  <div class="text-center mb-16 reveal">
+    <div class="gold-line mx-auto mb-6"></div>
+    <p class="text-gold text-xs uppercase tracking-[0.3em] font-medium mb-4">Arts & Entertainment District</p>
+    <h2 class="font-display text-3xl md:text-4xl font-light text-white mb-4">Live — Shop — Work — <span class="italic font-semibold">Play</span></h2>
+    <p class="text-white/30 max-w-lg mx-auto text-sm">Located in the heart of Miami's most exciting neighborhood, steps from world-class dining, nightlife, museums, and the waterfront.</p>
+  </div>
+  <div class="rounded-xl overflow-hidden reveal">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3592.5!2d-80.19!3d25.79!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s1500+NE+Miami+PL+Miami+FL+33132!5e0!3m2!1sen!2sus!4v1" width="100%" height="400" style="border:0; filter: invert(0.9) hue-rotate(180deg) brightness(0.8) contrast(1.2);" allowfullscreen loading="lazy" class="rounded-xl"></iframe>
+  </div>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10">
+    <div class="text-center reveal"><i class="fa-solid fa-utensils text-gold text-xl mb-2"></i><p class="text-white/50 text-xs">World-Class Dining</p></div>
+    <div class="text-center reveal" style="transition-delay:0.1s"><i class="fa-solid fa-palette text-gold text-xl mb-2"></i><p class="text-white/50 text-xs">Pérez Art Museum</p></div>
+    <div class="text-center reveal" style="transition-delay:0.2s"><i class="fa-solid fa-basketball text-gold text-xl mb-2"></i><p class="text-white/50 text-xs">Kaseya Center Arena</p></div>
+    <div class="text-center reveal" style="transition-delay:0.3s"><i class="fa-solid fa-sailboat text-gold text-xl mb-2"></i><p class="text-white/50 text-xs">Bayside Marketplace</p></div>
+  </div>
+</div>
+</section>
+
+<!-- Contact / CTA -->
+<section id="contact" class="py-32 px-6 bg-midnight relative">
+<div class="absolute inset-0 opacity-10">
+  <img src="../ai-images/hero-sunset.jpg" alt="" class="w-full h-full object-cover">
+</div>
+<div class="relative z-10 max-w-[1200px] mx-auto grid md:grid-cols-2 gap-16 items-start">
+  <div class="reveal-left">
+    <div class="gold-line mb-6"></div>
+    <p class="text-gold text-xs uppercase tracking-[0.3em] font-medium mb-4">Get in Touch</p>
+    <h2 class="font-display text-3xl md:text-4xl font-light text-white mb-6 leading-tight">Your New Home <span class="italic font-semibold">Awaits</span></h2>
+    <p class="text-white/40 leading-relaxed mb-10">Contact us for availability and pricing. We'd love to show you around.</p>
+    <div class="space-y-6">
+      <a href="tel:+13058001600" class="flex items-center gap-4 group">
+        <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition">
+          <i class="fa-solid fa-phone text-gold text-sm"></i>
+        </div>
+        <div>
+          <p class="text-white/30 text-xs uppercase tracking-wider">Call Us</p>
+          <p class="text-white font-medium">+1 (305) 800-1600</p>
+        </div>
+      </a>
+      <a href="mailto:miamiplazarentals@gmail.com" class="flex items-center gap-4 group">
+        <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition">
+          <i class="fa-solid fa-envelope text-gold text-sm"></i>
+        </div>
+        <div>
+          <p class="text-white/30 text-xs uppercase tracking-wider">Email</p>
+          <p class="text-white font-medium">miamiplazarentals@gmail.com</p>
+        </div>
+      </a>
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center">
+          <i class="fa-solid fa-location-dot text-gold text-sm"></i>
+        </div>
+        <div>
+          <p class="text-white/30 text-xs uppercase tracking-wider">Address</p>
+          <p class="text-white font-medium">1500 NE Miami PL, Miami, FL 33132</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="reveal-right">
+    <div class="bg-midnight-light rounded-2xl p-8 border border-white/5">
+      <h3 class="font-display text-xl text-white mb-6">Schedule a Tour</h3>
+      <form id="contactForm" class="space-y-5">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <input type="text" placeholder="First Name" required class="w-full bg-midnight border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/20 focus:outline-none focus:border-gold/50 transition text-sm">
+          <input type="text" placeholder="Last Name" required class="w-full bg-midnight border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/20 focus:outline-none focus:border-gold/50 transition text-sm">
+        </div>
+        <input type="email" placeholder="Email" required class="w-full bg-midnight border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/20 focus:outline-none focus:border-gold/50 transition text-sm">
+        <input type="tel" placeholder="Phone" class="w-full bg-midnight border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/20 focus:outline-none focus:border-gold/50 transition text-sm">
+        <select class="w-full bg-midnight border border-white/10 rounded-lg px-4 py-3 text-white/40 focus:outline-none focus:border-gold/50 transition text-sm">
+          <option value="">I'm interested in...</option>
+          <option>Studio</option>
+          <option>1 Bedroom</option>
+          <option>2 Bedroom</option>
+          <option>3 Bedroom</option>
+          <option>Penthouse</option>
+        </select>
+        <textarea placeholder="Message (optional)" rows="3" class="w-full bg-midnight border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/20 focus:outline-none focus:border-gold/50 transition resize-none text-sm"></textarea>
+        <button type="submit" class="w-full py-4 bg-gold text-midnight font-semibold text-sm uppercase tracking-wider hover:bg-gold-light transition">Request Information</button>
+      </form>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="py-12 px-6 border-t border-white/5">
+<div class="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+  <div class="flex items-center gap-3">
+    <img src="../wp-content/uploads/2018/04/cropped-logo-miamiplaza-150.png" alt="Miami Plaza" class="h-8">
+  </div>
+  <p class="text-white/20 text-xs">© 2026 Melo Group. All Rights Reserved.</p>
+  <a href="https://crrelabs.com" target="_blank" class="text-white/10 text-xs hover:text-white/30 transition">Website by CRRE Labs</a>
+</div>
+</footer>
+
+<script>
+// Sticky header
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 80));
+
+// Mobile menu
+document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.toggle('open'));
+document.querySelectorAll('#mobileMenu a').forEach(a => a.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open')));
+
+// Scroll reveal animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+
+// Subtle parallax on hero
+window.addEventListener('scroll', () => {
+  const hero = document.getElementById('heroBg');
+  if (hero) hero.style.transform = `translateY(${window.scrollY * 0.3}px)`;
+});
+
+// Form handler (mailto fallback)
+const form = document.getElementById('contactForm');
+if (form) form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const btn = this.querySelector('button');
+  btn.textContent = 'Sending...';
+  setTimeout(() => { btn.textContent = 'Request Sent!'; this.reset(); setTimeout(() => btn.textContent = 'Request Information', 3000); }, 800);
+  const fd = new FormData(this);
+  window.location.href = 'mailto:miamiplazarentals@gmail.com?subject=Tour%20Request%20-%20Miami%20Plaza%20Tower&body=' + encodeURIComponent('New tour request from the website');
+});
+</script>
+</body>
+</html>
